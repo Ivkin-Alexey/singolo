@@ -83,6 +83,12 @@ a {
     border-color: #666d89;
     border-width: 1px;
     border-radius: 4px;
+    transition: all 0.5s ease;
+}
+
+.portfolio_tag:hover {
+    color: #B9C3E6;
+    border-color: #B9C3E6;
 }
 
 .portfolio_tag.active {
@@ -107,8 +113,13 @@ a {
     flex-basis: 220px;
 }
 
+.portfolio_gallery__item:nth-of-type(1n+13) {
+    display: none;
+}
+
 .about {
     background: #f2f2f2;
+    border-bottom: 6px solid white;
 }
 
 .about_tittle {
@@ -159,6 +170,17 @@ a {
     margin-bottom: 24px;
 }
 
-.about_developer__link_img {
-    margin-right: 4px;
+.about_developer__links {
+    display: flex;
+}
+
+.about_developer__link {
+    position: relative;
+    margin-right: 8px;
+    bottom: 0;
+    transition: all 0.3s ease;
+}
+
+.about_developer__link:hover {
+    bottom: 5px;
 }
