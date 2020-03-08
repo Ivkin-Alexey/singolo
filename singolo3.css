@@ -1,0 +1,210 @@
+@font-face {
+    font-family: "Lato-Regular";
+    src: url("assets/fonts/Lato-Regular.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Lato-Black";
+    src: url("assets/fonts/Lato-Black.ttf");
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: "Lato-Light";
+    src: url('assets/fonts/Lato-Light.ttf');
+    font-style: normal;
+    font-weight: normal;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 1020px;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.feedback {
+    overflow: hidden;
+    background: #f06c64;
+    padding: 60px 40px 19px;
+    border-bottom: #ea676b solid 6px;
+}
+
+.feedback_form {
+    display: flex;
+    justify-content: space-between;
+}
+
+.feedback_tittle {
+    font-family: "Lato Black", serif;
+    color: #f0d8d9;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.feedback_description {
+    font-family: "Lato Light", serif;
+    color: #f0d8d9;
+    font-size: 18px;
+    line-height: 30px;
+    margin-bottom: 44px;
+    text-align: justify;
+}
+
+.feedback_form__input {
+    width: 620px;
+    margin-right: 20px;
+}
+
+.feedback_form__input_item , .feedback_form__input_item-textarea {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 16px;
+    padding: 12px 14px;
+    border-radius: 5px;
+    font-family: "Lato-Regular", serif;
+    color: #f0d8d9;
+    font-size: 12px;
+    border: 0;
+    background: #d6564f;
+}
+
+.feedback_form__input_item-textarea {
+    min-height: 202px;
+    max-height: 202px;
+    min-width: 100%;
+    margin-bottom: 12px;
+}
+
+.feedback_form__input_item::-webkit-input-placeholder {
+    color: #f48c8f;
+}
+
+.feedback_form__input_item:focus {
+    outline: none;
+}
+
+.feedback_form__input_item:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+.feedback_form__input_item-textarea::-webkit-input-placeholder {
+    color: #f48c8f;
+}
+
+.feedback_form__input_item-textarea:focus {
+    outline: none;
+}
+
+.feedback_form__input_item-textarea:focus::-webkit-input-placeholder {
+    color: transparent
+}
+
+.feedback_form__input_item-submit {
+    float: left;
+    width: 80px;
+    height: 25px;
+    padding: 0;
+    cursor: pointer;
+    color: #f0d8d9;
+    background: #4a4d5c;
+    border: none;
+    margin-bottom: 7px;
+    border-radius: 5px;
+}
+
+.feedback_form__input_item-submit:hover {
+    background: #676a7f;
+}
+
+.feedback_form__contactinformation {
+    width: 300px;
+    float: left;
+}
+
+.feedback_form__contactinformation_tittle {
+    font-family: "Lato-Black", serif;
+    color: #f0d8d9;
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 11px;
+}
+
+.feedback_form__contactinformation_description {
+    font-family: "Lato-Regular", serif;
+    color: #f0d8d9;
+    font-size: 12px;
+    line-height: 22px;
+    margin-bottom: 25px;
+    text-align: justify;
+}
+
+.feedback_form__contactinformation_contact {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.feedback_form__contactinformation_contact-figure {
+    width: 13px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+.feedback_form__contactinformation_contact-img:nth-child(3) {
+    top: 10px;
+}
+
+.feedback_form__contactinformation_contact-link {
+    font-family: "Lato-Regular", serif;
+    color: #f0d8d9;
+    font-size: 11px;
+}
+
+.footer {
+    background: #2d303a;
+    padding: 0 40px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer_copyright {
+    font-family: "Lato-Regular", serif;
+    color: #666d89;
+    font-size: 10px;
+}
+
+.footer_links {
+    display: flex;
+    margin: 21px 0 20px;
+}
+
+.footer_links__item_link {
+    width: 32px;
+    margin-left:  8px;
+    position: relative;
+    bottom: 0;
+    transition: all 0.3s ease;
+}
+
+.footer_links__item_link:hover {
+    bottom: 5px;
+}
