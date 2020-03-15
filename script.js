@@ -54,3 +54,16 @@ function setEventListeners() {
 
 setEventListeners();
 showSlides(slideIndex);
+
+/*---------------------------DISPLAY--------------------------------*/
+const vertical = document.querySelector('.home_button-vertical'),
+    horizontal = document.querySelector('.home_button-horizontal'),
+    verticalDisplay = document.querySelector('.slider__iphone_vertical_display'),
+    horizontalDisplay = document.querySelector('.slider__iphone_gorizontal_display');
+
+function toggleDisplay(display) {
+    display.classList.toggle('hidden');
+}
+
+vertical.addEventListener('click', () => toggleDisplay(verticalDisplay));
+horizontal.addEventListener('click', () => toggleDisplay(horizontalDisplay));
