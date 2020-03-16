@@ -9,35 +9,33 @@
 <header class="header container">
     <h1 class="header_logo"><a class="header_logo__link">SINGOLO</a></h1>
     <nav class="header_navigation">
-        <a class="header_navigation__item active" href="#">HOME</a>
-        <a class="header_navigation__item" href="#">SERVICES</a>
-        <a class="header_navigation__item" href="#">PORTFOLIO</a>
-        <a class="header_navigation__item" href="#">ABOUT</a>
-        <a class="header_navigation__item" href="#">CONTACT</a>
+        <a class="header_navigation__item active" href="#home">HOME</a>
+        <a class="header_navigation__item" href="#services">SERVICES</a>
+        <a class="header_navigation__item" href="#portfolio">PORTFOLIO</a>
+        <a class="header_navigation__item" href="#about">ABOUT</a>
+        <a class="header_navigation__item" href="#feedback">CONTACT</a>
     </nav>
 </header>
 <main>
-    <section class="slider container">
+    <section class="slider" id="home">
         <a class="slider_link slider_link-prev" href="#">
             <img class="slider_img-prev" src="assets/images/chev.png" alt="back">
         </a>
-        <figure class="slider__iphone_vertical">
-            <img class="slider__iphone_vertical_body" src="assets/images/iPhone.png" alt="iPhone">
-            <div class="slider__iphone_vertical_display">
-                <img class="iphone_vertical_display_img" src="assets/images/display1.png" alt="iPhone display">
-            </div>
-        </figure>
-        <figure class="slider__iphone_gorizontal">
-            <img class="slider__iphone_gorizontal_body" src="assets/images/iPhone_gorizontal.png" alt="iPhone">
-            <div class="slider__iphone_gorizontal_display">
-                <img class="iphone_gorizontal_display_img" src="assets/images/display2.png" alt="iPhone display">
-            </div>
-        </figure>
+        <div class="slider_slide fade">
+            <img src="assets/images/Slide1.png" alt="slide1">
+            <div class="slider__iphone_vertical_display hidden"></div>
+            <div class="home_button home_button-vertical"></div>
+            <div class="slider__iphone_gorizontal_display hidden"></div>
+            <div class="home_button home_button-horizontal"></div>
+        </div>
+        <div class="slider_slide fade">
+            <img src="assets/images/Slide2.png" alt="slide2">
+        </div>
         <a class="slider_link slider_link-next" href="#">
             <img class="slider_img-next" src="assets/images/chev.png" alt="next">
         </a>
     </section>
-    <section class="services container">
+    <section class="services container" id="services">
         <h2 class="services__title">Our Services</h2>
         <p class="services__description">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum. Duis mollis,
             non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit.
@@ -100,27 +98,27 @@
             </li>
         </ul>
     </section>
-    <section class="portfolio">
+    <section class="portfolio" id="portfolio">
         <h1 class="portfolio_tittle">Portfolio</h1>
         <p class="portfolio_info">Duis mollis, est non commodo luctus,
             nisi erat porttitor ligula, eget lacinia odio sem nec elit.
         </p>
         <ul class="portfolio_tags">
-            <li class="portfolio_tag active">
+            <li class="portfolio_tag active" data-order="1">
                 <a class="portfolio_tag__link" href="#">All</a>
             </li>
-            <li class="portfolio_tag">
+            <li class="portfolio_tag" data-order="2">
                 <a class="portfolio_tag__link" href="#">Web Design</a>
             </li>
-            <li class="portfolio_tag">
+            <li class="portfolio_tag" data-order="3">
                 <a class="portfolio_tag__link" href="#">Graphic Design</a>
             </li>
-            <li class="portfolio_tag">
+            <li class="portfolio_tag" data-order="4">
                 <a class="portfolio_tag__link" href="#">Artwork</a>
             </li>
         </ul>
         <ul class="portfolio_gallery">
-            <li class="portfolio_gallery__item">
+            <li class="portfolio_gallery__item" >
                 <img class="portfolio_gallery__image" alt="gallery image" src="./assets/images/Image1.png">
             </li>
             <li class="portfolio_gallery__item">
@@ -141,7 +139,7 @@
             <li class="portfolio_gallery__item">
                 <img class="portfolio_gallery__image" alt="gallery image" src="./assets/images/Image7.png">
             </li>
-            <li class="portfolio_gallery__item">
+            <li class="portfolio_gallery__item" id="WebDesign">
                 <img class="portfolio_gallery__image" alt="gallery image" src="./assets/images/Image8.png">
             </li>
             <li class="portfolio_gallery__item">
@@ -158,7 +156,7 @@
             </li>
         </ul>
     </section>
-    <section class="about">
+    <section class="about" id="about">
         <h1 class="about_tittle">About Us</h1>
         <p class="about_description">Fusce dapibus, tellus ac cursus commodo, tortor
             mauris condimentum. Duis mollis, non commodo luctus, nisi erat porttitor
@@ -196,7 +194,7 @@
                 </ul>
             </li>
             <li class="about_developer">
-                <img class="about_developer__photo" alt="developer photo" src="assets/images/Desmond%20Miles.png">
+                <img class="about_developer__photo" alt="developer photo" src="assets/images/Desmond.png">
                 <h2 class="about_developer__name">Desmond Miles</h2>
                 <p class="about_developer__skills">Curabitur vestibulum eget mauris quis
                     laoreet. Phasellus in quam laoreet, viverra lacus ut, ultrices velit.
@@ -255,7 +253,7 @@
             </li>
         </ul>
     </section>
-    <section class="feedback">
+    <section class="feedback" id="feedback">
         <h1 class="feedback_tittle">Get a Quote</h1>
         <p class="feedback_description">
             Fusce dapibus, tellus ac cursus commodo, tortor mauris
@@ -266,11 +264,11 @@
         </p>
         <div class="feedback_form">
             <form class="feedback_form__input">
-                <input class="feedback_form__input_item" type="text" required placeholder="Name (Required)">
-                <input class="feedback_form__input_item" type="email" required placeholder="Email (Required)">
-                <input class="feedback_form__input_item" type="text" required placeholder="Subject">
-                <textarea class="feedback_form__input_item-textarea" required rows="10" placeholder="Describe your project in detail..." wrap="soft"></textarea>
-                <input class="feedback_form__input_item-submit" type="submit" value="SEND">
+                <input class="feedback_form__input_item j-name" type="text" required placeholder="Name (Required)">
+                <input class="feedback_form__input_item j-email" type="email" required placeholder="Email (Required)">
+                <input class="feedback_form__input_item j-subject" type="text" placeholder="Subject">
+                <textarea class="feedback_form__input_item-textarea j-description" rows="10" placeholder="Describe your project in detail..." wrap="soft"></textarea>
+                <input class="feedback_form__input_item-submit j-submit" type="submit" value="SEND">
             </form>
             <div class="feedback_form__contactinformation">
                 <h3 class="feedback_form__contactinformation_tittle" >Contact Information</h3>
@@ -328,5 +326,6 @@
         </li>
     </ul>
 </footer>
+<script src="script.js"></script>
 </body>
 </html>

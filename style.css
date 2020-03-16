@@ -32,10 +32,14 @@
     box-sizing: border-box;
 }
 
+html.no-scroll {
+    overflow: hidden;
+    padding-right: 17px;
+}
+
 body {
     max-width: 1020px;
     margin: 0 auto;
-    height: 100vh;
 }
 
 main > section {
@@ -64,6 +68,10 @@ a {
 
     font-family: Lato-Bold, sans-serif;
     color: white;
+
+    position:sticky;
+    top:0;
+    z-index: 100;
 }
 
 .header_logo {
@@ -121,18 +129,44 @@ a.header_navigation__item:not(:first-child)::before {
 
 .slider {
     height: 600px;
-    background: #f06c64;
     display: flex;
     justify-content: center;
     align-items: center;
     border-bottom: 6px solid #ea676b;
     position: relative;
+    overflow: hidden;
+    padding: 0;
+}
+
+.slider_slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {
+        opacity: .4
+    }
+    to {
+        opacity: 1
+    }
+}
+
+.slider_slide img {
+    width: 100%;
 }
 
 .slider_link {
     position: absolute;
     width: 16px;
     height: 27px;
+    z-index: 10;
 }
 
 .slider_link-prev {
@@ -159,12 +193,19 @@ a.header_navigation__item:not(:first-child)::before {
 }
 
 .slider__iphone_vertical_display {
-    width: 188px;
+    width: 189px;
     height: 333px;
     position: absolute;
     overflow: hidden;
-    left: 14px;
-    top: 65px;
+    z-index: 10;
+    left: 126px;
+    top: 114px;
+    background: black;
+}
+
+.slider__iphone_vertical_display.hidden,
+.slider__iphone_gorizontal_display.hidden {
+    display: none;
 }
 
 .iphone_vertical_display_img {
@@ -177,12 +218,34 @@ a.header_navigation__item:not(:first-child)::before {
 }
 
 .slider__iphone_gorizontal_display {
-    width: 333px;
-    height: 188px;
+    width: 334px;
+    height: 189px;
     position: absolute;
     overflow: hidden;
-    left: 60px;
-    top: 14px;
+    z-index: 10;
+    left: 485px;
+    top: 186px;
+    background: black;
+}
+
+.home_button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+}
+
+.home_button-vertical {
+    left: 199px;
+    top: 458px;
+}
+
+.home_button-horizontal {
+    left: 435px;
+    top: 262px;
 }
 
 .iphone_gorizontal_display_img {
@@ -333,6 +396,10 @@ a.header_navigation__item:not(:first-child)::before {
     display: flex;
     margin: 0 20px 20px 0;
     flex-basis: 220px;
+}
+
+.portfolio_gallery__item.active {
+    outline: #F06C64 solid 5px;
 }
 
 .portfolio_gallery__item:nth-of-type(1n+13) {
@@ -576,4 +643,45 @@ a.header_navigation__item:not(:first-child)::before {
 
 .footer_links__item_link:hover {
     bottom: 5px;
+}
+
+.modal_wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .3);
+    z-index: 200;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_window {
+    width: 500px;
+    background: #f0d8d9;
+    padding: 20px;
+    font-family: Lato-Bold, sans-serif;
+    color: #666d89;
+    box-shadow: 0 0 50px -5px rgba(0,0,0,0.75);
+}
+
+.modal_window__title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.modal_window__subject,
+.modal_window__description {
+    margin-bottom: 10px;
+}
+
+.modal_window__button {
+    width: 80px;
+    height: 30px;
+    display: block;
+    margin: 0 auto;
+    cursor: pointer;
 }
