@@ -67,3 +67,53 @@ function toggleDisplay(display) {
 
 vertical.addEventListener('click', () => toggleDisplay(verticalDisplay));
 horizontal.addEventListener('click', () => toggleDisplay(horizontalDisplay));
+
+/*---------------------------PORTFOLIO--------------------------------*/
+let portfolioActiveLink = document.querySelector('.portfolio_tag.active');
+const portfolioTags = document.querySelector('.portfolio_tags');
+const galleryImages = document.querySelectorAll('.portfolio_gallery__item');
+
+setImagesOrder(portfolioActiveLink.dataset.order);
+
+portfolioTags.onclick = function (event) {
+    event.preventDefault();
+    const target = event.target.closest('LI');
+    if (target.tagName === 'LI') {
+        highlightPortfolioTag(target);
+        setImagesOrder(target.dataset.order);
+    }
+};
+
+function highlightPortfolioTag(elem) {
+    if (portfolioActiveLink) {
+        portfolioActiveLink.classList.remove('active');
+    }
+    portfolioActiveLink = elem;
+    portfolioActiveLink.classList.add('active');
+}
+
+function setImagesOrder(order) {
+    for (let i = 0; i < galleryImages.length; i++) {
+        const newOrder = i + (Math.floor(Math.random() * 100) * order);
+        galleryImages[i].style.order = `${newOrder}`;
+    }
+}
+
+/*---------------------------PORTFOLIO INTERACTION WITH IMAGES--------------------------------*/
+let imageActive;
+const portfolioGallery = document.querySelector('.portfolio_gallery');
+
+portfolioGallery.onclick = function (event) {
+    const target = event.target.closest('li');
+    if (target.tagName === 'LI') {
+        highlightPortfolioImages(target);
+    }
+};
+
+function highlightPortfolioImages(elem) {
+    if (imageActive) {
+        imageActive.classList.remove('active');
+    }
+    imageActive = elem;
+    imageActive.classList.add('active');
+}

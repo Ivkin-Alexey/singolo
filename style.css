@@ -393,6 +393,10 @@ a.header_navigation__item:not(:first-child)::before {
     flex-basis: 220px;
 }
 
+.portfolio_gallery__item.active {
+    outline: #F06C64 solid 5px;
+}
+
 .portfolio_gallery__item:nth-of-type(1n+13) {
     display: none;
 }
