@@ -78,7 +78,7 @@ setImagesOrder(portfolioActiveLink.dataset.order);
 portfolioTags.onclick = function (event) {
     event.preventDefault();
     const target = event.target.closest('LI');
-    if (target.tagName === 'LI') {
+    if (target && target.tagName === 'LI') {
         highlightPortfolioTag(target);
         setImagesOrder(target.dataset.order);
     }
@@ -116,4 +116,63 @@ function highlightPortfolioImages(elem) {
     }
     imageActive = elem;
     imageActive.classList.add('active');
+}
+
+/*---------------------------FORM MODAL WINDOW--------------------------------*/
+const submitButton = document.querySelector('.j-submit');
+const name = document.querySelector('.j-name');
+const email = document.querySelector('.j-email');
+const subject = document.querySelector('.j-subject');
+const description = document.querySelector('.j-description');
+
+submitButton.addEventListener('click', sendForm);
+
+function sendForm(event) {
+    if (name.value && email.value) {
+        event.preventDefault();
+        createModalWindow();
+        name.value = '';
+        email.value = '';
+        subject.value = '';
+        description.value = '';
+    }
+}
+
+function createModalWindow() {
+    const body = document.querySelector('body');
+    const modalWrapper= document.createElement('div');
+    modalWrapper.classList.add('modal_wrapper');
+    modalWrapper.innerHTML = `
+        <div class="modal_window">
+            <h3 class="modal_window__title">Письмо отправлено</h3>
+            <p class="modal_window__subject">${subject.value ? 'Тема: ' + subject.value : 'Без темы'}</p>
+            <p class="modal_window__description">${description.value ? 'Описание: ' + description.value : 'Без описания'}</p>
+            <button class="modal_window__button">OK</button>
+        </div>
+    `;
+    document.documentElement.classList.add('no-scroll');
+    body.appendChild(modalWrapper)
+        .addEventListener('click', outsideClick);
+    body.addEventListener('keyup', closeOnEscape);
+    document.querySelector('.modal_window__button').addEventListener('click', closeModalWindow);
+}
+
+function closeModalWindow() {
+    const body = document.querySelector('body');
+    document.querySelector('.modal_wrapper').remove();
+    document.documentElement.classList.remove('no-scroll');
+    body.removeEventListener('click', outsideClick);
+    body.removeEventListener('keyup', closeOnEscape);
+}
+
+function outsideClick(event) {
+    if (!event.target.closest('.modal_window')) {
+        closeModalWindow();
+    }
+}
+
+function closeOnEscape(event) {
+    if (event.key === 'Escape') {
+        closeModalWindow();
+    }
 }
